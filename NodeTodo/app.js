@@ -16,6 +16,10 @@ var port = process.env.PORT || 3000
 // map all /assets requests to public directory
 app.use('/assets', express.static(__dirname + '/public'))
 
+app.use('/',function (req,res) {
+  res.send('Welcome to Todo App')
+})
+
 // init mongodb connection
 mongoose.connect(config.getDbConnectionString())
 
