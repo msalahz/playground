@@ -1,19 +1,19 @@
 // import mongoose npm package
-const mongoose = require('mongoose');
+var mongoose = require('mongoose')
 
 // get schema ref
-const Schema = mongoose.Schema;
+var Schema = mongoose.Schema
 
 // create todos schema
-let todoSchema = new Schema({
-    user: String,
-    body: String,
-    isDone: Boolean,
-    hasAttachment: Boolean
-});
+var todoSchema = new Schema({
+  user: String,
+  body: String,
+  isDone: Boolean,
+  hasAttachment: Boolean
+})
 
 // create todos model
-let todo = mongoose.model('todo',todoSchema);
+var todo = mongoose.model('todo', todoSchema)
 
-//export todos model
-module.exports = todo;
+// export todos model
+module.exports = todo

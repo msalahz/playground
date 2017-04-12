@@ -1,9 +1,9 @@
 // import db config
-const config = require('./config.json');
+var config = require('./config.json')
 
 // export config node module
 module.exports = {
-    getDbConnectionString: function () {
-        return `mongodb://${config.user}:${config.pass}@ds159200.mlab.com:59200/node-todo`;
-    }
-};
+  getDbConnectionString: function () {
+    return 'mongodb://' + config.user + ':' + config.pass + '@ds159200.mlab.com:59200/node-todo'
+  }
+}

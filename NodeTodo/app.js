@@ -1,24 +1,28 @@
 // import express framework
-const express = require('express');
+var express = require('express')
 // create an express app
-const app = express();
+var app = express()
 // import mongoose for managing MongoDB
-const mongoose = require('mongoose');
+var mongoose = require('mongoose')
 // import db config
-const config = require('./config');
+var config = require('./config')
 // import setup controller
-const setupController = require('./controllers/setup');
+var setupController = require('./controllers/setup')
+// import setup controller
+var todoController = require('./controllers/todo')
 // set app listening port
-const port = process.env.PORT || 3000;
+var port = process.env.PORT || 3000
 
 // map all /assets requests to public directory
-app.use('/assets', express.static(`${__dirname}/public`));
+app.use('/assets', express.static(__dirname + '/public'))
 
 // init mongodb connection
-mongoose.connect(config.getDbConnectionString());
+mongoose.connect(config.getDbConnectionString())
 
 // exec setup module to init setup route for seed data generation
-setupController(app);
+setupController(app)
+// exec todo module to init todo api routes consuming todos
+todoController(app)
 
 // set app listener port
-app.listen(port);
+app.listen(port)
